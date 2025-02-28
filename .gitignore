@@ -1,0 +1,17 @@
+# Ignorar binários e build
+/bin/
+/obj/
+
+# Ignorar arquivos de configuração do Visual Studio
+.vs/
+/.vscode/
+
+# Ignorar arquivos de dependências do NuGet
+/packages/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos temporários de debug
+*.user
+*.suo

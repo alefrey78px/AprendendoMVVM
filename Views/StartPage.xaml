@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AprendendoMVVM.Views.StartPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:AprendendoMVVM.ViewModels"
+    Title="StartPage">
+
+    <!--
+        * Esse comentário está aqui porque aparentmente não pode colocar
+        comentários nas linhas x:Class e xmlns que "buga" a aplicação
+        
+        A linha
+        xmlns:vm="clr-namespace:AprendendoMVVM.ViewModels"
+        define o namespace 'vm' para acessar os ViewModels da aplicação,
+        permitindo o uso de seus dados e lógica no XAML
+    -->
+
+    <!--  Atributo BindingContext define a ViewModel associada a esta View  -->
+    <!--  Aqui estamos vinculando a View ao ViewModel StartPageViewModel  -->
+    <ContentPage.BindingContext>
+        <vm:StartPageViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20" Spacing="10">
+
+        <!--  Label que serve como título da página  -->
+        <!--  O texto é configurado como "Formulário de cadastro", e o estilo TextTransform altera para maiúsculas  -->
+        <Label
+            HorizontalOptions="Center"
+            Text="Formulário de cadastro"
+            TextTransform="Uppercase"
+            VerticalOptions="Center" />
+
+        <!--  Entrada de texto para o nome da pessoa  -->
+        <!--  O Text é vinculado à propriedade Person.Name na ViewModel  -->
+        <Entry Placeholder="Nome" Text="{Binding Person.Name}" />
+
+        <!--  Entrada de texto para o email da pessoa  -->
+        <!--  O Text é vinculado à propriedade Person.Email na ViewModel  -->
+        <Entry Placeholder="Email" Text="{Binding Person.Email}" />
+
+        <!--  Labels que exibem os valores de Person.Name e Person.Email  -->
+        <!--  Essas labels são atualizadas automaticamente quando as propriedades correspondentes mudam  -->
+        <Label Text="{Binding Person.Name}" />
+        <Label Text="{Binding Person.Email}" />
+
+        <!--  Botão que aciona o comando SaveCommand da ViewModel  -->
+        <!--  O comando SaveCommand será executado quando o botão for pressionado  -->
+        <Button Command="{Binding SaveCommand}" Text="Salvar" />
+
+        <!--  CollectionView exibe a lista de pessoas  -->
+        <!--  O ItemsSource está vinculado à coleção People na ViewModel  -->
+        <!--  Cada item da coleção é exibido usando um DataTemplate  -->
+        <CollectionView ItemsSource="{Binding People}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <!--  Exibe o nome da pessoa na lista  -->
+                        <Label Text="{Binding Name}" />
+
+                        <!--  Exibe o email da pessoa na lista com cor cinza  -->
+                        <Label Text="{Binding Email}" TextColor="Gray" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </StackLayout>
+</ContentPage>
