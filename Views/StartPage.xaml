@@ -34,16 +34,16 @@
 
         <!--  Entrada de texto para o nome da pessoa  -->
         <!--  O Text é vinculado à propriedade Person.Name na ViewModel  -->
-        <Entry Placeholder="Nome" Text="{Binding Person.Name}" />
+        <Entry Placeholder="Nome" Text="{Binding PersonName}" />
 
         <!--  Entrada de texto para o email da pessoa  -->
         <!--  O Text é vinculado à propriedade Person.Email na ViewModel  -->
-        <Entry Placeholder="Email" Text="{Binding Person.Email}" />
+        <Entry Placeholder="Email" Text="{Binding PersonEmail}" />
 
         <!--  Labels que exibem os valores de Person.Name e Person.Email  -->
         <!--  Essas labels são atualizadas automaticamente quando as propriedades correspondentes mudam  -->
-        <Label Text="{Binding Person.Name}" />
-        <Label Text="{Binding Person.Email}" />
+        <Label Text="{Binding PersonName}" />
+        <Label Text="{Binding PersonEmail}" />
 
         <!--  Botão que aciona o comando SaveCommand da ViewModel  -->
         <!--  O comando SaveCommand será executado quando o botão for pressionado  -->
